@@ -77,7 +77,9 @@ public class RequirementArtifact {
     private PeerEvaluationUser updatedBy;
 
 
+    /** Required by JPA/Hibernate. */
     public RequirementArtifact() {
+        // Required by JPA/Hibernate.
 
     }
 

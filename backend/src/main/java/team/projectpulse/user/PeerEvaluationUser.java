@@ -33,7 +33,9 @@ public abstract class PeerEvaluationUser {
     private String roles; // Space separated string
 
 
+    /** Required by JPA/Hibernate. */
     public PeerEvaluationUser() {
+        // Required by JPA/Hibernate.
     }
 
     public PeerEvaluationUser(String username, String firstName, String lastName, String email, String password, boolean enabled, String roles) {

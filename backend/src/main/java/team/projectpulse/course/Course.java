@@ -32,7 +32,9 @@ public class Course {
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
     private List<Rubric> rubrics = new ArrayList<>();
 
+    /** Required by JPA/Hibernate. */
     public Course() {
+        // Required by JPA/Hibernate.
     }
 
     public Course(String courseName, String courseDescription) {

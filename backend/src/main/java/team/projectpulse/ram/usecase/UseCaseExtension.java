@@ -55,7 +55,9 @@ public class UseCaseExtension {
     private List<UseCaseExtensionStep> steps = new ArrayList<>();
 
 
+    /** Required by JPA/Hibernate. */
     public UseCaseExtension() {
+        // Required by JPA/Hibernate.
 
     }
 

@@ -24,7 +24,9 @@ public class Rubric {
     private Course course; // the course that this rubric belongs to
 
 
+    /** Required by JPA/Hibernate. */
     public Rubric() {
+        // Required by JPA/Hibernate.
     }
 
     public Rubric(String rubricName) {

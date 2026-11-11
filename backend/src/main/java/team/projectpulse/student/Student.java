@@ -14,7 +14,9 @@ public class Student extends PeerEvaluationUser {
     private Team team;
 
 
+    /** Required by JPA/Hibernate. */
     public Student() {
+        // Required by JPA/Hibernate.
     }
 
     public Student(String username, String firstName, String lastName, String email, String password, boolean enabled, String roles) {

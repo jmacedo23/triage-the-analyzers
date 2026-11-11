@@ -35,7 +35,9 @@ public class PeerEvaluation {
     private LocalDateTime updatedAt;
 
 
+    /** Required by JPA/Hibernate. */
     public PeerEvaluation() {
+        // Required by JPA/Hibernate.
     }
 
     public PeerEvaluation(String week, Student evaluator, Student evaluatee, List<Rating> ratings, String publicComment, String privateComment) {

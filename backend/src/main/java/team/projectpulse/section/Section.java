@@ -51,7 +51,9 @@ public class Section {
     private LocalTime peerEvaluationDueTime; // e.g., "23:59"
 
 
+    /** Required by JPA/Hibernate. */
     public Section() {
+        // Required by JPA/Hibernate.
     }
 
     public Section(String sectionName,

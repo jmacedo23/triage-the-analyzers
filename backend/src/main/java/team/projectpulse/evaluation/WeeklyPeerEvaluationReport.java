@@ -12,9 +12,6 @@ public class WeeklyPeerEvaluationReport {
     private List<PeerEvaluationAverage> peerEvaluationAverages = new ArrayList<>();
 
 
-    public WeeklyPeerEvaluationReport() {
-    }
-
     public String getSectionName() {
         return sectionName;
     }

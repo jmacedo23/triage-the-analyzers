@@ -25,7 +25,9 @@ public class Team {
     private Instructor instructor;
 
 
+    /** Required by JPA/Hibernate. */
     public Team() {
+        // Required by JPA/Hibernate.
     }
 
     public Team(String teamName, String description, String teamWebsiteUrl) {
