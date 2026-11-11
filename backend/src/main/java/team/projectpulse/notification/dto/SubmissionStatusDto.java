@@ -24,4 +24,7 @@ public record SubmissionStatusDto(SubmittableItem item,
                                   @JsonFormat(pattern = "HH:mm")
                                   LocalTime dueTime,
                                   List<OwingTeamDto> teams) {
+    public SubmissionStatusDto {
+        teams = teams == null ? null : List.copyOf(teams);
+    }
 }

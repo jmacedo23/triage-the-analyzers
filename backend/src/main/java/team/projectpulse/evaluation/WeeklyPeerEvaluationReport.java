@@ -1,8 +1,10 @@
 package team.projectpulse.evaluation;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.util.ArrayList;
 import java.util.List;
 
+@SuppressFBWarnings(value = "EI_EXPOSE_REP", justification = "EvaluationService intentionally appends averages through the report's managed list while building this short-lived response object before JSON serialization.")
 public class WeeklyPeerEvaluationReport {
 
     private String sectionName;

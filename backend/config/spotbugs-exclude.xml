@@ -7,4 +7,12 @@
 
      Unlike the baseline, this file may grow, but every entry is a reviewed decision. -->
 <FindBugsFilter>
+    <!-- JPA entities deliberately expose Hibernate-managed association references and collections. Copying them
+         would detach entities or replace PersistentCollection implementations, breaking dirty tracking and the
+         bidirectional relationship helpers used throughout the domain model. -->
+    <Match><Class name="~team\.projectpulse\.(activity\.Activity|course\.Course|evaluation\.(PeerEvaluation|Rating)|instructor\.Instructor|ram\.collaboration\.(Comment|CommentThread)|ram\.document\.(DocumentSection|DocumentSectionLock|RequirementDocument)|ram\.requirement\.(ArtifactKeySequence|ArtifactLink|RequirementArtifact)|ram\.usecase\.(UseCase|UseCaseExtension|UseCaseExtensionStep|UseCaseLock|UseCaseMainStep)|rubric\.(Criterion|Rubric)|section\.Section|student\.Student|team\.Team)"/><Bug pattern="EI_EXPOSE_REP"/></Match>
+    <Match><Class name="~team\.projectpulse\.(activity\.Activity|course\.Course|evaluation\.(PeerEvaluation|Rating)|instructor\.Instructor|ram\.collaboration\.(Comment|CommentThread)|ram\.document\.(DocumentSection|DocumentSectionLock|RequirementDocument)|ram\.requirement\.(ArtifactKeySequence|ArtifactLink|RequirementArtifact)|ram\.usecase\.(UseCase|UseCaseExtension|UseCaseExtensionStep|UseCaseLock|UseCaseMainStep)|rubric\.(Criterion|Rubric)|section\.Section|student\.Student|team\.Team)"/><Bug pattern="EI_EXPOSE_REP2"/></Match>
+    <!-- These explicitly named Spring components receive shared framework beans by constructor injection; copying
+         a repository, service, converter, encoder, or scheduler dependency would violate Spring bean identity. -->
+    <Match><Class name="~team\.projectpulse\.(activity\.ActivityController|course\.CourseController|evaluation\.EvaluationController|instructor\.(InstructorController|InstructorService)|notification\.(ReminderController|ReminderService|SubmissionStatusService|WeeklyReminderScheduler)|ram\.collaboration\.CommentController|ram\.document\.DocumentSectionService|ram\.glossary\.GlossaryService|ram\.requirement\.(ArtifactLinkController|RequirementArtifactController)|ram\.usecase\.UseCaseService|rubric\.(CriterionController|RubricController)|section\.(SectionController|SectionService)|seed\.DataInitializer|student\.(StudentController|StudentService)|team\.TeamController|user\.(UserController|UserService)|user\.resetpassword\.ResetPasswordService)"/><Bug pattern="EI_EXPOSE_REP2"/></Match>
 </FindBugsFilter>

@@ -118,6 +118,9 @@ public class ReminderService {
      * @param failed the students it did not, in the order they were tried
      */
     public record ReminderResult(int sent, List<Student> failed) {
+        public ReminderResult {
+            failed = failed == null ? null : List.copyOf(failed);
+        }
     }
 
 }

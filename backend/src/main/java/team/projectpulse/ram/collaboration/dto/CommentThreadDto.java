@@ -11,4 +11,7 @@ public record CommentThreadDto(Long id,
                                Instant createdAt,
                                PeerEvaluationUserDto createdBy,
                                List<CommentDto> comments) {
+    public CommentThreadDto {
+        comments = comments == null ? null : List.copyOf(comments);
+    }
 }
