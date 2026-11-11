@@ -128,12 +128,29 @@ const rules = {
 const router = useRouter()
 const ready = ref(false) // State to track if validation is complete
 
-onMounted(async () => {
-  const { email, token, courseId, sectionId, role } = route.query as Record<string, string> // Destructure query parameters
+function isNonEmptyQueryString(value: unknown): value is string {
+  return typeof value === 'string' && value.trim().length > 0
+}
 
-  if (!email || !token || !role) {
+function parseRequiredId(value: unknown): number | undefined {
+  if (!isNonEmptyQueryString(value)) {
+    return undefined
+  }
+
+  const id = Number(value)
+  return Number.isSafeInteger(id) && id > 0 ? id : undefined
+}
+
+onMounted(async () => {
+  const { email, token, courseId, sectionId, role } = route.query
+
+  if (
+    !isNonEmptyQueryString(email) ||
+    !isNonEmptyQueryString(token) ||
+    !isNonEmptyQueryString(role) ||
+    (role !== 'student' && role !== 'instructor')
+  ) {
     ElMessage.error('Invalid registration link')
-    // redirect to 403
     router.replace('/403')
     return
   }
@@ -149,12 +166,20 @@ onMounted(async () => {
     return
   }
 
+  const parsedCourseId = parseRequiredId(courseId)
+  const parsedSectionId = parseRequiredId(sectionId)
+  if (parsedCourseId === undefined || parsedSectionId === undefined) {
+    ElMessage.error('Invalid registration link')
+    router.replace('/403')
+    return
+  }
+
   // Pre-fill the email and username fields, disable editing
   registration.value.email = email
   registration.value.username = email
   registrationToken.value = token
-  registrationCourseId.value = parseInt(courseId)
-  registrationSectionId.value = parseInt(sectionId)
+  registrationCourseId.value = parsedCourseId
+  registrationSectionId.value = parsedSectionId
   registrationRole.value = role
 
   ready.value = true // show the form only after all checks pass
