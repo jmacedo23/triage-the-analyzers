@@ -155,7 +155,8 @@ import {
   Title,
   BarElement,
   CategoryScale,
-  LinearScale
+  LinearScale,
+  type ChartOptions
 } from 'chart.js'
 
 ChartJS.register(ArcElement, Tooltip, Legend, Title, BarElement, CategoryScale, LinearScale)
@@ -218,7 +219,7 @@ const barChartOptions = {
       text: 'Activities by Category'
     }
   }
-}
+} satisfies ChartOptions<'bar'>
 
 const doughnutChartOptions = {
   responsive: false,
@@ -232,7 +233,7 @@ const doughnutChartOptions = {
       text: 'Activities by Status'
     }
   }
-}
+} satisfies ChartOptions<'doughnut'>
 </script>
 
 <style lang="scss" scoped>

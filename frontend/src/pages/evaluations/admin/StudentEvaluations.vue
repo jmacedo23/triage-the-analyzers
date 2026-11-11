@@ -142,10 +142,9 @@ ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, T
 
 // Computed properties for chart data and options
 const evaluationData = computed(() => {
-  const weeks = peerEvalutionAverages.value?.map((evaluation) => evaluation.week)
-  const evaluationAvgTotalScores = peerEvalutionAverages.value?.map(
-    (evaluation) => evaluation.averageTotalScore
-  )
+  const evaluations = peerEvalutionAverages.value ?? []
+  const weeks = evaluations.map((evaluation) => evaluation.week)
+  const evaluationAvgTotalScores = evaluations.map((evaluation) => evaluation.averageTotalScore)
   return {
     labels: weeks,
     datasets: [
