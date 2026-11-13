@@ -15,7 +15,9 @@ public class ResetPasswordToken {
     private LocalDateTime expiryDate;
 
 
+    /** Required by JPA/Hibernate. */
     public ResetPasswordToken() {
+        // Required by JPA/Hibernate.
     }
 
     public ResetPasswordToken(String email) {

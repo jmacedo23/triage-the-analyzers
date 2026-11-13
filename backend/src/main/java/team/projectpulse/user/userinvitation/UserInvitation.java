@@ -14,7 +14,9 @@ public class UserInvitation {
     private String role;
 
 
+    /** Required by JPA/Hibernate. */
     public UserInvitation() {
+        // Required by JPA/Hibernate.
     }
 
     public UserInvitation(String email, Integer courseId, Integer sectionId, String token, String role) {

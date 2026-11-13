@@ -27,7 +27,9 @@ public class ArtifactKeySequence {
     private Long version;
 
 
+    /** Required by JPA/Hibernate. */
     public ArtifactKeySequence() {
+        // Required by JPA/Hibernate.
     }
 
     public ArtifactKeySequence(Team team, RequirementArtifactType type) {

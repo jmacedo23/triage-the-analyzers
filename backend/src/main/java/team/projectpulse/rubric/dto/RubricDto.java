@@ -7,4 +7,7 @@ public record RubricDto(
         String rubricName,
         Set<CriterionDto> criteria,
         Integer courseId) {
+    public RubricDto {
+        criteria = criteria == null ? null : Set.copyOf(criteria);
+    }
 }

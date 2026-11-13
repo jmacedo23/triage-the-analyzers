@@ -1,7 +1,9 @@
 package team.projectpulse.evaluation;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.util.List;
 
+@SuppressFBWarnings(value = "EI_EXPOSE_REP", justification = "This report is assembled incrementally by EvaluationService and its lists are intentionally shared only within that report-building workflow before JSON serialization.")
 public class PeerEvaluationAverage {
 
     private Integer studentId;
@@ -15,9 +17,6 @@ public class PeerEvaluationAverage {
     private List<String> privateComments;
     private List<RatingAverage> ratingAverages;
 
-
-    public PeerEvaluationAverage() {
-    }
 
     public Integer getStudentId() {
         return studentId;

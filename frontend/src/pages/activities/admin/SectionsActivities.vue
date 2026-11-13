@@ -208,17 +208,23 @@ async function loadActivities() {
   )
   activities.value = result.data.content // Activities that meet the search criteria
 
-  // Group activities by teamId
-  const activitiesGroupedByTeamId = activities.value.reduce(
-    (team, activity) => {
-      if (!team[activity.teamId!]) {
-        team[activity.teamId!] = []
-      }
-      team[activity.teamId!].push(activity)
-      return team
-    },
-    {} as Record<number, Activity[]>
-  )
+  // Group activities by teamId. An activity without a team cannot appear in a team report.
+  const activitiesGroupedByTeamId: Record<number, Activity[]> = {}
+  let activitiesWithoutTeam = 0
+  for (const activity of activities.value) {
+    if (activity.teamId === undefined) {
+      activitiesWithoutTeam++
+      continue
+    }
+
+    const teamActivities =
+      activitiesGroupedByTeamId[activity.teamId] ??
+      (activitiesGroupedByTeamId[activity.teamId] = [])
+    teamActivities.push(activity)
+  }
+  if (activitiesWithoutTeam > 0) {
+    ElMessage.error('Some activities could not be shown because they have no team assignment.')
+  }
 
   // Assign activities to teams
   teams.value.forEach((team) => {

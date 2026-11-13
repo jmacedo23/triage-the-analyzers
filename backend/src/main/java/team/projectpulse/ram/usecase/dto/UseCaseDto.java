@@ -34,4 +34,10 @@ public record UseCaseDto(
         PeerEvaluationUserDto updatedBy,
         Integer version,
         UseCaseLockDto lock) {
+    public UseCaseDto {
+        secondaryActorIds = secondaryActorIds == null ? null : Set.copyOf(secondaryActorIds);
+        preconditions = preconditions == null ? null : Set.copyOf(preconditions);
+        postconditions = postconditions == null ? null : Set.copyOf(postconditions);
+        mainSteps = mainSteps == null ? null : List.copyOf(mainSteps);
+    }
 }

@@ -8,4 +8,7 @@ import java.util.List;
 public record OwingTeamDto(Integer teamId,
                            String teamName,
                            List<OwingStudentDto> students) {
+    public OwingTeamDto {
+        students = students == null ? null : List.copyOf(students);
+    }
 }

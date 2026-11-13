@@ -16,7 +16,9 @@ public class Rating {
     private PeerEvaluation peerEvaluation;
 
 
+    /** Required by JPA/Hibernate. */
     public Rating() {
+        // Required by JPA/Hibernate.
     }
 
     public Rating(Criterion criterion, Double actualScore) {

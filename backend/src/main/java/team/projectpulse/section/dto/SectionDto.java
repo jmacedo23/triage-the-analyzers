@@ -29,4 +29,7 @@ public record SectionDto(Integer sectionId,
                          DayOfWeek peerEvaluationWeeklyDueDay,
                          @NotEmpty(message = "Peer evaluation due time is required.")
                          String peerEvaluationDueTime) {
+    public SectionDto {
+        activeWeeks = activeWeeks == null ? null : List.copyOf(activeWeeks);
+    }
 }

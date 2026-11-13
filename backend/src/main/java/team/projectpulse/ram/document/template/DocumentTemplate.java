@@ -19,11 +19,11 @@ public class DocumentTemplate {
     }
 
     public List<SectionTemplate> getSections() {
-        return sections;
+        return List.copyOf(sections);
     }
 
     public void setSections(List<SectionTemplate> sections) {
-        this.sections = sections;
+        this.sections = sections == null ? new ArrayList<>() : new ArrayList<>(sections);
     }
 
     public static class SectionTemplate {

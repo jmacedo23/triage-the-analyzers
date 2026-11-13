@@ -29,7 +29,9 @@ public class Instructor extends PeerEvaluationUser {
     private Course defaultCourse; // default course for this instructor, personal preference
 
 
+    /** Required by JPA/Hibernate. */
     public Instructor() {
+        // Required by JPA/Hibernate.
     }
 
     public Instructor(String username, String firstName, String lastName, String email, String password, boolean enabled, String roles) {

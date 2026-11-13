@@ -25,7 +25,9 @@ public class Team {
     private Instructor instructor;
 
 
+    /** Required by JPA/Hibernate. */
     public Team() {
+        // Required by JPA/Hibernate.
     }
 
     public Team(String teamName, String description, String teamWebsiteUrl) {
@@ -93,13 +95,17 @@ public class Team {
     }
 
     public void addInstructor(Instructor instructor) {
-        if (instructor == null) return;
+        if (instructor == null) {
+            return;
+        }
         this.instructor = instructor;
         instructor.getTeams().add(this);
     }
 
     public void removeInstructor(Instructor instructor) {
-        if (instructor == null) return;
+        if (instructor == null) {
+            return;
+        }
         this.instructor = null;
         instructor.getTeams().remove(this);
     }

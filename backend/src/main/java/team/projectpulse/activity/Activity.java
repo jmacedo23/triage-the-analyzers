@@ -36,7 +36,9 @@ public class Activity {
     private LocalDateTime updatedAt;
 
 
+    /** Required by JPA/Hibernate. */
     public Activity() {
+        // Required by JPA/Hibernate.
     }
 
     public Activity(Student student, String week, Team team, ActivityCategory category, String activity, String description, Double plannedHours, Double actualHours, ActivityStatus status) {

@@ -7,4 +7,7 @@ public record UseCaseMainStepDto(
         String actor,
         String actionText,
         List<UseCaseExtensionDto> extensions) {
+    public UseCaseMainStepDto {
+        extensions = extensions == null ? null : List.copyOf(extensions);
+    }
 }

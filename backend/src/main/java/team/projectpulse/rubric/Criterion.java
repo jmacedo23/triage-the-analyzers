@@ -21,7 +21,9 @@ public class Criterion {
     private Course course; // the course that this criterion belongs to
 
 
+    /** Required by JPA/Hibernate. */
     public Criterion() {
+        // Required by JPA/Hibernate.
     }
 
     public Criterion(String criterion, String description, Double maxScore) {

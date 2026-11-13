@@ -20,4 +20,7 @@ public record DocumentSectionDto(Long id,
                                  PeerEvaluationUserDto updatedBy,
                                  Integer version,
                                  DocumentSectionLockDto lock) {
+    public DocumentSectionDto {
+        requirementArtifacts = requirementArtifacts == null ? null : List.copyOf(requirementArtifacts);
+    }
 }

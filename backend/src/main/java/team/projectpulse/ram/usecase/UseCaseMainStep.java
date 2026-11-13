@@ -28,7 +28,9 @@ public class UseCaseMainStep {
     private List<UseCaseExtension> extensions = new ArrayList<>();
 
     
+    /** Required by JPA/Hibernate. */
     public UseCaseMainStep() {
+        // Required by JPA/Hibernate.
 
     }
 
